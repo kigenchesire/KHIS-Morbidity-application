@@ -1,5 +1,6 @@
 package com.google.android.fhir.khisapp.engine
 
+import android.content.SharedPreferences
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -20,12 +21,16 @@ import com.google.android.fhir.datacapture.validation.QuestionnaireResponseValid
 import kotlinx.coroutines.launch
 import org.hl7.fhir.r4.model.Patient
 import org.hl7.fhir.r4.model.Questionnaire
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 import java.util.UUID
 
 
 
 class MainActivity : AppCompatActivity() {
 
+  private lateinit var sharedPreferences: SharedPreferences
 
   var questionnaireJsonString: String? = null
   private val viewModel: MainActivityViewModel by viewModels()
@@ -37,6 +42,8 @@ class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: android.os.Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
+
+    sharedPreferences = getSharedPreferences("syncTime", MODE_PRIVATE)
 
     questionnaireJsonString = getStringFromAssets("quetionnaire3.json")
     if (savedInstanceState == null) {
@@ -127,7 +134,8 @@ class MainActivity : AppCompatActivity() {
 
       Toast.makeText(this@MainActivity, "Sync started ", Toast.LENGTH_SHORT).show()
       viewModel.triggerOneTimeSync()
-      Toast.makeText(this@MainActivity, "Sync was successfull ", Toast.LENGTH_SHORT).show()
+      saveLastSyncedTime()
+      Toast.makeText(this@MainActivity, "Sync was successfully ", Toast.LENGTH_SHORT).show()
       return true}
     return super.onOptionsItemSelected(item)
   }
@@ -141,6 +149,18 @@ class MainActivity : AppCompatActivity() {
 
     return UUID.randomUUID().toString()
 
+  }
+
+  private fun saveLastSyncedTime() {
+    val currentTime = System.currentTimeMillis()
+    val editor = sharedPreferences.edit()
+    editor.putLong("lastSyncedTime", currentTime)
+    editor.apply()
+  }
+
+  private fun formatTimestamp(timestamp: Long): String {
+    val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+    return dateFormat.format(Date(timestamp))
   }
 }
 
