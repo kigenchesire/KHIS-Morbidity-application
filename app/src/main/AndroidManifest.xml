@@ -1,26 +1,45 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.google.android.fhir.codelabs.engine"
->
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.google.android.fhir.codelabs.engine">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name="com.google.android.fhir.khisapp.engine.FhirApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="KHIS Morbidity Records"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Codelab"
-        android:networkSecurityConfig="@xml/network_security_config"
-        android:name="com.google.android.fhir.khisapp.engine.FhirApplication"
-    >
-        <activity android:name="com.google.android.fhir.khisapp.engine.MainActivity" android:exported="true">
+        android:theme="@style/Theme.Codelab">
+        <activity
+            android:name="com.google.android.fhir.khisapp.engine.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.google.android.fhir.khisapp.engine.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.google.android.fhir.khisapp.engine.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.google.android.fhir.khisapp.engine.GetStartedActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.google.android.fhir.khisapp.engine.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.google.android.fhir.khisapp.engine.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.google.android.fhir.khisapp.engine.MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
