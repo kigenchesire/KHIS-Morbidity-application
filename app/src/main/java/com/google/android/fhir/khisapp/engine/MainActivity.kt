@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    questionnaireJsonString = getStringFromAssets("quetionnaire3.json")
+    questionnaireJsonString = getStringFromAssets("questionnare5.json")
     if (savedInstanceState == null) {
       supportFragmentManager.commit {
         setReorderingAllowed(true)
