@@ -43,9 +43,9 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    sharedPreferences = getSharedPreferences("syncTime", MODE_PRIVATE)
 
-    questionnaireJsonString = getStringFromAssets("quetionnaire3.json")
+    questionnaireJsonString = getStringFromAssets("questionnare5.json")
+    sharedPreferences = getSharedPreferences("syncTime", MODE_PRIVATE)
     if (savedInstanceState == null) {
       supportFragmentManager.commit {
         setReorderingAllowed(true)
