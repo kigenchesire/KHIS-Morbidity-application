@@ -38,7 +38,7 @@ class FhirApplication : Application() {
         enableEncryptionIfSupported = true,
         RECREATE_AT_OPEN,
         ServerConfiguration(
-          baseUrl = "http://668e-197-232-6-81.ngrok-free.app/fhir/",
+          baseUrl = "http://f94c-41-89-99-5.ngrok-free.app/fhir/",
           httpLogger =
             HttpLogger(
               HttpLogger.Configuration(

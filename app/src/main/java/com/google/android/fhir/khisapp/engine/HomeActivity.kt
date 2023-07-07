@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -23,10 +24,10 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val userImageButton: ImageButton = findViewById(R.id.userImageButton)
-        val searchImageButton: ImageButton = findViewById(R.id.searchImageButton)
-        val syncImageButton: ImageButton = findViewById(R.id.syncImageButton)
-        val addRecordImageButton: ImageButton = findViewById(R.id.addRecordImageButton)
+        val userImageButton: ImageView = findViewById(R.id.userImageButton)
+        val searchImageButton: ImageView = findViewById(R.id.searchImageButton)
+        val syncImageButton: ImageView = findViewById(R.id.syncImageButton)
+        val addRecordImageButton: ImageView = findViewById(R.id.addRecordImageButton)
 
         val userTextView: TextView = findViewById(R.id.userTextView)
         val searchTextView: TextView = findViewById(R.id.searchTextView)
@@ -84,6 +85,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun sync() {
+        Toast.makeText(this, "Sync started", Toast.LENGTH_SHORT).show()
         viewModel.triggerOneTimeSync()
         saveLastSyncedTime()
         setLastSyncedTime()

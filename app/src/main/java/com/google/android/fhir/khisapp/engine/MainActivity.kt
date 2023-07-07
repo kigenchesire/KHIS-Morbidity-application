@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
 
 
-    questionnaireJsonString = getStringFromAssets("questionnare5.json")
+    questionnaireJsonString = getStringFromAssets("questionnare6.json")
     sharedPreferences = getSharedPreferences("syncTime", MODE_PRIVATE)
     if (savedInstanceState == null) {
       supportFragmentManager.commit {
