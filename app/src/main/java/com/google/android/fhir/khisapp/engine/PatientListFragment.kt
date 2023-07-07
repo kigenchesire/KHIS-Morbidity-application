@@ -111,10 +111,6 @@ class PatientListFragment : Fragment() {
               viewModel.triggerOneTimeSync()
               true
             }
-            R.id.update -> {
-              viewModel.triggerUpdate()
-              true
-            }
             else -> false
           }
         }
