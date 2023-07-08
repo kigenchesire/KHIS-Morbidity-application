@@ -30,6 +30,7 @@ import java.util.UUID
 
 class MainActivity : AppCompatActivity() {
 
+
   private lateinit var sharedPreferences: SharedPreferences
 
   var questionnaireJsonString: String? = null
