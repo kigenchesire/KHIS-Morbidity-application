@@ -24,6 +24,8 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        supportActionBar?.hide();
+
         val userImageButton: ImageView = findViewById(R.id.userImageButton)
         val searchImageButton: ImageView = findViewById(R.id.searchImageButton)
         val syncImageButton: ImageView = findViewById(R.id.syncImageButton)
