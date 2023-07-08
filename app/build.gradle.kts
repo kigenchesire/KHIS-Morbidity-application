@@ -76,4 +76,6 @@ dependencies {
 
     implementation("com.google.android.fhir:engine:0.1.0-beta03")
     implementation("androidx.fragment:fragment-ktx:1.5.5")
+
+    implementation ("com.airbnb.android:lottie:3.6.0")
 }
