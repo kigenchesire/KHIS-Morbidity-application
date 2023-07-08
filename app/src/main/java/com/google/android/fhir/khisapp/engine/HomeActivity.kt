@@ -13,19 +13,23 @@ import com.google.android.fhir.codelabs.engine.R
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import android.view.Window
+import android.view.WindowManager
 
 class HomeActivity : AppCompatActivity() {
+
 
     private val viewModel: MainActivityViewModel by viewModels()
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var lastSyncedTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        supportActionBar?.hide();
 
+      
         val userImageButton: ImageView = findViewById(R.id.userImageButton)
         val searchImageButton: ImageView = findViewById(R.id.searchImageButton)
         val syncImageButton: ImageView = findViewById(R.id.syncImageButton)
