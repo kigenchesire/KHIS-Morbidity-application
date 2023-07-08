@@ -29,6 +29,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
 
+      
         val userImageButton: ImageView = findViewById(R.id.userImageButton)
         val searchImageButton: ImageView = findViewById(R.id.searchImageButton)
         val syncImageButton: ImageView = findViewById(R.id.syncImageButton)
