@@ -19,6 +19,7 @@ import com.google.android.fhir.datacapture.mapping.ResourceMapper
 import com.google.android.fhir.datacapture.validation.Invalid
 import com.google.android.fhir.datacapture.validation.QuestionnaireResponseValidator
 import kotlinx.coroutines.launch
+import org.hl7.fhir.r4.model.Observation
 import org.hl7.fhir.r4.model.Patient
 import org.hl7.fhir.r4.model.Questionnaire
 import java.text.SimpleDateFormat
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
 
 
-    questionnaireJsonString = getStringFromAssets("questionnare6.json")
+    questionnaireJsonString = getStringFromAssets("morbiditysurvey.json")
     sharedPreferences = getSharedPreferences("syncTime", MODE_PRIVATE)
     if (savedInstanceState == null) {
       supportFragmentManager.commit {
@@ -75,6 +76,7 @@ class MainActivity : AppCompatActivity() {
       val questionnaire =
         jsonParser.parseResource(questionnaireJsonString) as Questionnaire
       val bundle = ResourceMapper.extract(questionnaire, questionnaireResponse)
+      val encounterId = generateUuid()
       Log.d("extraction result", jsonParser.encodeResourceToString(bundle))
       //  upload qusetonnaire to FHIR engine
 
@@ -97,13 +99,13 @@ class MainActivity : AppCompatActivity() {
       }
       val entry = ResourceMapper.extract(questionnaireResource, questionnaireResponse).entryFirstRep
 
-      if (entry.resource !is Patient) {
+      if (entry.resource !is Observation) {
         val resourse_entry = entry.resource
         Toast.makeText(this@MainActivity, "resource type = $resourse_entry", Toast.LENGTH_SHORT)
           .show()
         return@launch
       }
-      val questionnaireresponse = entry.resource as Patient
+      val questionnaireresponse = entry.resource as Observation
       questionnaireresponse.id = UUID.randomUUID().toString()
       fhirEngine.create(questionnaireresponse)
       isPatientSaved.value = true
