@@ -19,12 +19,12 @@ package com.google.android.fhir.khisapp.engine
 import android.app.Application
 import android.content.Context
 import android.util.Log
+import com.google.android.fhir.BuildConfig
 import com.google.android.fhir.DatabaseErrorStrategy.RECREATE_AT_OPEN
 import com.google.android.fhir.FhirEngine
 import com.google.android.fhir.FhirEngineConfiguration
 import com.google.android.fhir.FhirEngineProvider
 import com.google.android.fhir.ServerConfiguration
-import com.google.android.fhir.codelabs.engine.BuildConfig
 import com.google.android.fhir.sync.remote.HttpLogger
 
 class FhirApplication : Application() {
@@ -38,7 +38,7 @@ class FhirApplication : Application() {
         enableEncryptionIfSupported = true,
         RECREATE_AT_OPEN,
         ServerConfiguration(
-          baseUrl = "http://f94c-41-89-99-5.ngrok-free.app/fhir/",
+          baseUrl = "http://ba50-197-232-6-81.ngrok-free.app/fhir/",
           httpLogger =
             HttpLogger(
               HttpLogger.Configuration(

@@ -24,8 +24,9 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var lastSyncedTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
+
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         setContentView(R.layout.activity_home)
 
 
