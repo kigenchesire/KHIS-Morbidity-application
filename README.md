@@ -1,6 +1,7 @@
 
 <!-- KHIS-morbidity-recorder -->
 <h1>KHIS-morbidity-recorder</h1>
+
 <h2>Overview</h2>
 <p>KHIS-morbidity-recorder is an Android application designed to streamline the process of recording and managing morbidity records. This user-friendly app offers a sleek and intuitive interface, enabling healthcare professionals to easily navigate through the system and efficiently enter accurate data.</p>
 <h2>Key Features</h2>
